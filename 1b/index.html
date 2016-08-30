@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+		var stringOfNames = prompt ("Введите 5 имен через пробел", "Имя1_Имя2_Имя3_Имя4_Имя5");
+		verification(stringOfNames);
+		
+		if (verification(stringOfNames) != 4) {
+			debugger;
+			alert ('Введите 5 имен через пробел!!!');
+		} else {
+			var newName = prompt ("Введите свое имя", "Имя_пользователя");
+			var arrOfNames = arrayOfNames(stringOfNames);
+			var k = 0;
+
+			compare(arrOfNames, newName);
+
+			if (k == 1) {
+				alert(newName+', '+'вы успешно вошли');
+			} else {
+				alert('Ошибка');
+			}
+		}
+
+
+		function verification(stringOfNames) {
+			var b = 0;
+
+			for (var i = 0; i <= stringOfNames.length - 1; i++) {
+				if ( stringOfNames.charAt(i) == ' ') {
+					debugger;
+					b++;
+				}
+			}
+				return b;
+		}
+
+
+		function arrayOfNames(stringOfNames) {
+			var arrOfNames = [];
+
+			for (var i = 0; i < 4; i++) {
+			var j = 0;
+				arrOfNames[i] = '';
+				while ( stringOfNames.charAt(j) != ' ') {
+					arrOfNames[i] = arrOfNames[i] + stringOfNames.charAt(j);
+					j++;
+				}
+
+				stringOfNames = stringOfNames.substr(j+1);
+			}
+
+			arrOfNames[4] = stringOfNames;
+
+			return arrOfNames;
+		} 
+
+		function compare(arrOfNames, newName) {
+
+
+			for (i = 0; i <= 4; i++) {
+				var newString = arrOfNames[i];
+
+				if (newName == newString) {
+					k = 1;
+					break;
+				}
+			}	
+		}
+
+	</script>
+</body>
+
+</html>
