@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	alert ('Введение числа p в степень m');
+	var myBasis = prompt('Введите число p');
+	var myPower = prompt('Введите степень m');
+	console.log(pow(myBasis, myPower));
+
+	function pow(myBasis, myPower) {
+	   	var myResult = undefined;
+
+		myBasis = parseFloat(myBasis, 10);
+		myPower = parseFloat(myPower, 10);
+
+		if ((Number.isInteger(myBasis) !== true) || (Number.isInteger(myPower) !== true)) {
+			myResult = 'Введите целые числа!';
+			} else if ((myBasis !== 0) && (myPower !== 0)) {	
+			  myResult = multiply(myBasis, myPower);
+			}
+		
+
+		if ((myBasis !== 0) && (myPower == 0)) {
+			myResult = '1';
+		}
+
+		if ((myBasis == 0) && (myPower == 0)) {
+			myResult = 'uncertainty';
+		}
+
+		if ((myBasis == 0) && (myPower !== 0)) {
+			myResult = '0';
+		}
+		
+
+		return myResult;		
+	}
+
+	function multiply(myBasis, myPower) {
+		if (myPower < 0) {
+		    myBasis = 1 / myBasis;
+		}
+
+		var result = myBasis;
+
+		for (i = 1; i < Math.abs(myPower); i++) {
+			result = result * myBasis;		
+		}
+
+		return result;
+	}
+</script>
+</body>
+
+</html>
